@@ -14,17 +14,16 @@ public class GameIO {
     private final Scanner scanner;
 
     public String readLine(String input) {
-        String line;
-        while (true) {
+        String line = "";
             try{
                 System.out.println(input);
                 line = scanner.nextLine();
-                break;
+                return line;
             } catch (NoSuchElementException e) {
-                System.out.println("Ошибка ввода. Попробуйте снова.");
+                System.out.println("Ошибка ввода.");
             }
-        }
         return line;
+
     }
     public int readInt(String input) {
         int value;
