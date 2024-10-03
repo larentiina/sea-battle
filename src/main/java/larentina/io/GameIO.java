@@ -26,15 +26,19 @@ public class GameIO {
 
     }
     public int readInt(String input) {
-        int value;
-        while (true) {
-            try {
-                System.out.println(input);
-                value = Integer.parseInt(scanner.nextLine());
-                break;
-            } catch (NumberFormatException e) {
-                System.out.println("Ошибка: необходимо ввести число. Попробуйте снова.");
+        int value=0;
+        try {
+            while (true) {
+                try {
+                    System.out.println(input);
+                    value = Integer.parseInt(scanner.nextLine());
+                    break;
+                } catch (NumberFormatException e) {
+                    System.out.println("Ошибка: необходимо ввести число. Попробуйте снова.");
+                }
             }
+        }catch (NoSuchElementException e) {
+            System.out.println("Ошибка ввода.");
         }
         return value;
     }
