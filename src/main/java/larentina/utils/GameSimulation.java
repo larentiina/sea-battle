@@ -15,10 +15,10 @@ public class GameSimulation {
 
     public void start()  {
         gameIO.printMessage("Добро пожаловать в игру морской бой!");
+            BattleShipGameSession usg1 = initializePlayer(1);
+            BattleShipGameSession usg2 = initializePlayer(2);
+            battle(usg1, usg2);
 
-        BattleShipGameSession usg1 = initializePlayer( 1);
-        BattleShipGameSession usg2 = initializePlayer( 2);
-        battle(usg1, usg2);
     }
 
     private String initializePlayerName(int playerNumber){
@@ -89,7 +89,7 @@ public class GameSimulation {
                 gameIO.printMessage(e.getMessage());
                 hit = true;
             }
-        } while (hit || defender.getKilledShips() < 20);
+        } while ((hit && defender.getKilledShips() < 20)  || (!hit && defender.getKilledShips() >= 20));
     }
 
 
